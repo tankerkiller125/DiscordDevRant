@@ -7,6 +7,12 @@ object Main {
     var client: IDiscordClient? = null
     var handler: NewHandler? = null
 
+    /**
+     * Main function sets up bot and registers commands.
+     *
+     * @param args Array<String>
+     * @return void
+     */
     @JvmStatic fun main(args: Array<String>) {
         // Create bot and handler
         client = Bot.createClient(args[0], true)
