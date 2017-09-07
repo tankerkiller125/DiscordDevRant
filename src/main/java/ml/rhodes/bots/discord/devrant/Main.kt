@@ -4,6 +4,8 @@ import ml.rhodes.bots.discord.devrant.commands.Help
 import ml.rhodes.bots.discord.devrant.commands.admin.AddPermission
 import ml.rhodes.bots.discord.devrant.commands.admin.Exit
 import ml.rhodes.bots.discord.devrant.commands.admin.RemovePermission
+import ml.rhodes.bots.discord.devrant.commands.admin.settings.ChangeAvatar
+import ml.rhodes.bots.discord.devrant.commands.admin.settings.ChangeGame
 import ml.rhodes.bots.discord.devrant.utils.NewHandler
 import sx.blah.discord.api.IDiscordClient
 
@@ -31,6 +33,8 @@ object Main {
 
         // Register commands
         handler!!.registerCommand(Exit())
+        handler!!.registerCommand(ChangeAvatar(client!!))
+        handler!!.registerCommand(ChangeGame(client!!))
         handler!!.registerCommand(RemovePermission(handler!!))
         handler!!.registerCommand(AddPermission(handler!!))
         handler!!.registerCommand(Help(handler!!))

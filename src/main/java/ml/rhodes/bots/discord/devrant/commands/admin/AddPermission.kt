@@ -17,6 +17,7 @@ class AddPermission(private val commandHandler: NewHandler) : CommandExecutor {
                 val users = message.mentions
                 users.forEach { user ->
                     commandHandler.addPermission(user.stringID, args[0])
+                    commandHandler.savePermissions()
                     return user.mention() + " has received the " + args[0] + " permission."
                 }
                 return "This should never happen!"

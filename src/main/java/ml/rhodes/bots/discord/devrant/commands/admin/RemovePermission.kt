@@ -23,6 +23,7 @@ class RemovePermission(private val commandHandler: NewHandler) : CommandExecutor
             val users = message.mentions
             users.forEach { user ->
                 commandHandler.removePermission(user.stringID, args[0])
+                commandHandler.savePermissions()
                 return user.mention() + " lost the " + args[0] + "permission."
             }
             return "This should never happen"
