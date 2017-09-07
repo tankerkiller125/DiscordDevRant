@@ -22,6 +22,7 @@ object Main {
         // Create bot and handler
         client = Bot.createClient(args[0], true)
         handler = NewHandler(client)
+        handler!!.defaultPrefix = "!"
 
         // Load custom user permissions for bot
         handler!!.loadPermissions()

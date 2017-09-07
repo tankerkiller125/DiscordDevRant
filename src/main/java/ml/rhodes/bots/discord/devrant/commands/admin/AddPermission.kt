@@ -8,7 +8,7 @@ import sx.blah.discord.handle.obj.IMessage
 import sx.blah.discord.handle.obj.IUser
 
 class AddPermission(private val commandHandler: NewHandler) : CommandExecutor {
-    @Command(aliases = arrayOf("!addpermission", "!addperm"), usage = "!addperm <permission> <@users>", channelMessages = true, privateMessages = false)
+    @Command(aliases = arrayOf("addpermission", "addperm"), usage = "addperm <permission> <@users>", channelMessages = true, privateMessages = false)
     fun onAddPermissionCommand(args: Array<String>, user: IUser, message: IMessage): String {
         if (user.discriminator == Main.client!!.applicationOwner.discriminator || commandHandler.hasPermission(user.stringID, "admin.addPermission")) {
             if (args.isEmpty() || args.size < 2) {

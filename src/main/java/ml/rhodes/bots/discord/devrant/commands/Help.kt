@@ -3,6 +3,8 @@ package ml.rhodes.bots.discord.devrant.commands
 import de.btobastian.sdcf4j.Command
 import de.btobastian.sdcf4j.CommandExecutor
 import ml.rhodes.bots.discord.devrant.utils.NewHandler
+import sx.blah.discord.handle.obj.IMessage
+import sx.blah.discord.handle.obj.IUser
 
 class Help(private val commandHandler: NewHandler) : CommandExecutor {
 
@@ -11,14 +13,17 @@ class Help(private val commandHandler: NewHandler) : CommandExecutor {
      *
      * @return String
      */
-    @Command(aliases = arrayOf("!help", "!h"), description = "Shows this page", usage = "!help", async = true)
-    fun onHelpCommand(): String {
+    @Command(aliases = arrayOf("help", "h"), description = "Shows this page", usage = "help", async = true)
+    fun onHelpCommand(user: IUser, message: IMessage): String {
         val builder = StringBuilder()
-        builder.append("**Commands:**")
-        builder.append("```xml") // a xml code block looks fancy
+        builder.append("**Commands:**\n")
+        builder.append("```xml")
         commandHandler.commands.forEach { command ->
             if (!command.commandAnnotation.showInHelpPage) {
                 return@forEach // skip command
+            }
+            if (!commandHandler.hasPermission(user.stringID, command.commandAnnotation.requiredPermissions)) {
+                return@forEach
             }
             builder.append("\n")
             if (!command.commandAnnotation.requiresMention) {
@@ -35,8 +40,7 @@ class Help(private val commandHandler: NewHandler) : CommandExecutor {
                 builder.append(" | ").append(description)
             }
         }
-        //builder.append("\n```")
-        //builder.append("Questions? https://discord.gg/GAC6q3M")// end of xml code block
+        builder.append("```")
         return builder.toString()
     }
 }
