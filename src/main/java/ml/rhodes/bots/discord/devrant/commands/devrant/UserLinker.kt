@@ -18,7 +18,7 @@ class UserLinker : IListener<MessageReceivedEvent> {
         if (matcher.find()) {
             matcher.reset()
             while (matcher.find()) {
-                val userId = matcher.group(1)
+                val username = matcher.group(1)
                 client!!.getChannelByID(channel).sendMessage("We're working on parsing devrant users. Please give us time")
             }
         }
