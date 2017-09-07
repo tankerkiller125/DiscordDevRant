@@ -6,6 +6,8 @@ import ml.rhodes.bots.discord.devrant.commands.admin.Exit
 import ml.rhodes.bots.discord.devrant.commands.admin.RemovePermission
 import ml.rhodes.bots.discord.devrant.commands.admin.settings.ChangeAvatar
 import ml.rhodes.bots.discord.devrant.commands.admin.settings.ChangeGame
+import ml.rhodes.bots.discord.devrant.commands.devrant.RantLinker
+import ml.rhodes.bots.discord.devrant.commands.devrant.UserLinker
 import ml.rhodes.bots.discord.devrant.utils.NewHandler
 import sx.blah.discord.api.IDiscordClient
 
@@ -38,6 +40,10 @@ object Main {
         handler!!.registerCommand(RemovePermission(handler!!))
         handler!!.registerCommand(AddPermission(handler!!))
         handler!!.registerCommand(Help(handler!!))
+
+        // Register devRant parsers
+        client!!.dispatcher.registerListener(RantLinker())
+        client!!.dispatcher.registerListener(UserLinker())
 
         // Save custom user permission for bot before shutdown (only when done safely)
         Runtime.getRuntime().addShutdownHook(Thread {
