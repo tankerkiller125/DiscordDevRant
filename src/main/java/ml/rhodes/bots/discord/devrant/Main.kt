@@ -14,6 +14,9 @@ object Main {
      * @return void
      */
     @JvmStatic fun main(args: Array<String>) {
+        if (args.isEmpty()) {
+            error("No Client key given!")
+        }
         // Create bot and handler
         client = Bot.createClient(args[0], true)
         handler = NewHandler(client)
