@@ -1,6 +1,7 @@
 package ml.rhodes.bots.discord.devrant
 
-import ml.rhodes.bots.discord.devrant.Bot.clientBuilder
+import ml.rhodes.bots.discord.devrant.commands.Help
+import ml.rhodes.bots.discord.devrant.commands.admin.AddPermission
 import ml.rhodes.bots.discord.devrant.utils.NewHandler
 import sx.blah.discord.api.IDiscordClient
 
@@ -25,8 +26,8 @@ object Main {
         // Load custom user permissions for bot
         handler!!.loadPermissions()
 
-        clientBuilder!!.registerListener(Ready())
-
+        handler!!.registerCommand(AddPermission(handler!!))
+        handler!!.registerCommand(Help(handler!!))
 
         // Save custom user permission for bot before shutdown (only when done safely)
         Runtime.getRuntime().addShutdownHook(Thread {
