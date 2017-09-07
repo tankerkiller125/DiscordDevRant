@@ -38,7 +38,9 @@ class RantLinker : IListener<MessageReceivedEvent> {
                 * builder.appendField("++", rantPlusPlus, true);
                 * builder.appendField("Comments", rantCommentCount, true);
                 *
-                * client!!.getChannelByID(channel).sendMessage(builder.build())
+                * RequestBuffer.request {
+                *       client!!.getChannelByID(channel).sendMessage(builder.build())
+                * }
                 */
             }
         }

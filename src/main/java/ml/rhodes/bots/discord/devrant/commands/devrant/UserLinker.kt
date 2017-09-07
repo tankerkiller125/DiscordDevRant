@@ -33,7 +33,9 @@ class UserLinker : IListener<MessageReceivedEvent> {
                 * builder.appendField("++", userTotalPlusPlus, true);
                 * builder.appendField("Comments", userCommentCount, true);
                 *
-                * client!!.getChannelByID(channel).sendMessage(builder.build())
+                * RequestBuffer.request {
+                *       client!!.getChannelByID(channel).sendMessage(builder.build())
+                * }
                 */
             }
         }
