@@ -2,6 +2,8 @@ package ml.rhodes.bots.discord.devrant
 
 import ml.rhodes.bots.discord.devrant.commands.Help
 import ml.rhodes.bots.discord.devrant.commands.admin.AddPermission
+import ml.rhodes.bots.discord.devrant.commands.admin.Exit
+import ml.rhodes.bots.discord.devrant.commands.admin.RemovePermission
 import ml.rhodes.bots.discord.devrant.utils.NewHandler
 import sx.blah.discord.api.IDiscordClient
 
@@ -27,6 +29,9 @@ object Main {
         // Load custom user permissions for bot
         handler!!.loadPermissions()
 
+        // Register commands
+        handler!!.registerCommand(Exit())
+        handler!!.registerCommand(RemovePermission(handler!!))
         handler!!.registerCommand(AddPermission(handler!!))
         handler!!.registerCommand(Help(handler!!))
 
