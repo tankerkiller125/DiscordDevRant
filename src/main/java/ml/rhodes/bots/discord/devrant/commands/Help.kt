@@ -2,6 +2,7 @@ package ml.rhodes.bots.discord.devrant.commands
 
 import de.btobastian.sdcf4j.Command
 import de.btobastian.sdcf4j.CommandExecutor
+import ml.rhodes.bots.discord.devrant.Main.client
 import ml.rhodes.bots.discord.devrant.utils.NewHandler
 import sx.blah.discord.handle.obj.IMessage
 import sx.blah.discord.handle.obj.IUser
@@ -22,7 +23,7 @@ class Help(private val commandHandler: NewHandler) : CommandExecutor {
             if (!command.commandAnnotation.showInHelpPage) {
                 return@forEach // skip command
             }
-            if (!commandHandler.hasPermission(user.stringID, command.commandAnnotation.requiredPermissions)) {
+            if (!commandHandler.hasPermission(user.stringID, command.commandAnnotation.requiredPermissions) || client!!.applicationOwner.discriminator != user.discriminator) {
                 return@forEach
             }
             builder.append("\n")
