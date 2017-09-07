@@ -16,6 +16,9 @@ class AddPermission(private val commandHandler: NewHandler) : CommandExecutor {
             } else {
                 val users = message.mentions
                 users.forEach { user ->
+                    if (commandHandler.hasPermission(user.stringID, args[0])) {
+                        return user.mention() + " already has the " + args[0] + " permission."
+                    }
                     commandHandler.addPermission(user.stringID, args[0])
                     commandHandler.savePermissions()
                     return user.mention() + " has received the " + args[0] + " permission."

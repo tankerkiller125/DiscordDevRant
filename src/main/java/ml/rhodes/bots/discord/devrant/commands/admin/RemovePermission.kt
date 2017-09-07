@@ -22,6 +22,9 @@ class RemovePermission(private val commandHandler: NewHandler) : CommandExecutor
         if (user.discriminator == Main.client!!.applicationOwner.discriminator || commandHandler.hasPermission(user.stringID, "admin.permission.remove")) {
             val users = message.mentions
             users.forEach { user ->
+                if (!commandHandler.hasPermission(user.stringID, args[0])) {
+                    return user.mention() + " doesn't have the " + args[0] + " permission."
+                }
                 commandHandler.removePermission(user.stringID, args[0])
                 commandHandler.savePermissions()
                 return user.mention() + " lost the " + args[0] + "permission."
