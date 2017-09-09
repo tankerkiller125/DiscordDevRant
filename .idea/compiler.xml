@@ -9,8 +9,8 @@
         <module name="devRantDiscordBot" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="devRantDiscordBot" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="devRantDiscordBot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

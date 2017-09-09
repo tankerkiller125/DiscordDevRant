@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
         <kotlin.version>1.1.4-3</kotlin.version>
         <slf4j.version>1.6.4</slf4j.version>
         <logback.version>1.0.1</logback.version>
@@ -58,6 +60,18 @@
             <groupId>de.btobastian.sdcf4j</groupId>
             <artifactId>sdcf4j-discord4j</artifactId>
             <version>1.0.5</version>
+        </dependency>
+
+        <!-- Devrant Dependencies -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>fluent-hc</artifactId>
+            <version>4.5.1</version>
         </dependency>
 
         <!-- Logging Dependencies -->
