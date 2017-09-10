@@ -22,7 +22,7 @@
 hs_err_pid*
 
 # Editor Files
-.idea
+.idea/
 
 # Special Private Files
 permissions.xml
