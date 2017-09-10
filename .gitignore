@@ -26,3 +26,4 @@ hs_err_pid*
 
 # Special Private Files
 permissions.xml
+dependency-reduced-pom.xml
