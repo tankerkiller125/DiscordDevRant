@@ -2,7 +2,6 @@ package ml.rhodes.bots.discord.devrant.services.devRant.models
 
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
-import org.json.JSONObject
 import java.net.URI
 import java.util.*
 import kotlin.collections.ArrayList

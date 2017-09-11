@@ -1,7 +1,5 @@
 package kotlinTest
 
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.launch
 import kotlinx.coroutines.experimental.runBlocking
 import ml.rhodes.bots.discord.devrant.network.ResourceStatus
 import ml.rhodes.bots.discord.devrant.services.devRant.API

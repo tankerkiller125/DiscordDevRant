@@ -1,19 +1,14 @@
 package ml.rhodes.bots.discord.devrant.services.devRant
 
 import com.google.gson.Gson
-import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.launch
 import ml.rhodes.bots.discord.devrant.network.Resource
 import ml.rhodes.bots.discord.devrant.services.devRant.models.Rant
-import okhttp3.Callback
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
-import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
 /**
