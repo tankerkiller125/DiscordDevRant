@@ -23,7 +23,7 @@ class APITest {
     @Test
     fun fetchRant_Success(){
         runBlocking {
-            val result = API().fetchRant("832739")
+            val result = API().fetchRant(832739)
             assert(result.status == ResourceStatus.success)
             assert(result.data != null)
             assert(result.data!!.id == 832739)

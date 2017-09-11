@@ -56,7 +56,7 @@ class API {
      * @param rantId ID of rant to get
      * @return [Resource<Rant>] instance
      */
-    suspend fun fetchRant(rantId: String): Resource<Rant> {
+    suspend fun fetchRant(rantId: Int): Resource<Rant> {
         return async(CommonPool) {
             val request: Request = Request.Builder().url(String.format(baseUrl, "rants/" + rantId, "")).build()
             try {
